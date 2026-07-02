@@ -51,8 +51,6 @@ class OutboxProcessor:
         for event in events:
             if event.event_type == "payment.created":
                 routing_key = "payments.new"
-            elif event.event_type == "payment.processed":
-                routing_key = "payments.processed"
             else:
                 logger.error(
                     "Unknown event type '%s', event %s skipped",
